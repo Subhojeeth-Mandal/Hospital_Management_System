@@ -1,0 +1,1168 @@
+/* -------------------Navbar----------------- */
+/* =========================
+   ROOT THEME VARIABLES
+   ========================= */
+:root {
+  --primary: #1e88e5;
+  --primary-dark: #1565c0;
+  --accent: #00bfa5;
+  --danger: #e53935;
+  --bg-light: #f5f9fc;
+  --text-dark: #263238;
+  --text-muted: #607d8b;
+  --white: #ffffff;
+  --radius: 12px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+}
+
+/* =========================
+   NAVBAR CONTAINER
+   ========================= */
+.hospital-navbar {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  padding: 14px 32px;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* =========================
+   INNER FLEX LAYOUT
+   ========================= */
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* =========================
+   BRAND
+   ========================= */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.brand-icon {
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+.brand-text {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.brand-sub {
+  color: var(--accent);
+  margin-left: 2px;
+}
+
+
+/* =========================
+   NAV LINKS
+   ========================= */
+.nav-links {
+  display: flex;
+  gap: 28px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  position: relative;
+  padding: 6px 0;
+  transition: var(--transition);
+}
+
+/* Hover underline animation */
+.nav-item::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background-color: var(--accent);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.nav-item:hover {
+  color: var(--white);
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+/* Active route */
+.nav-item.active {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.nav-item.active::after {
+  width: 100%;
+}
+
+/* =========================
+   ACTIONS (EMERGENCY BUTTON)
+   ========================= */
+.nav-actions {
+  display: flex;
+  align-items: center;
+}
+
+.emergency-btn {
+  background: var(--danger);
+  color: var(--white);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(229, 57, 53, 0.35);
+  transition: var(--transition);
+}
+
+.emergency-btn:hover {
+  background: #c62828;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+   ========================= */
+@media (max-width: 900px) {
+  .nav-links {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 700px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+
+/* -----------------DashBoard------------------ */
+/* Custom Properties for Medical Realism */
+:root {
+  --med-blue: #2563eb;
+  --med-teal: #0d9488;
+  --dark-bg: #0f172a;
+  --card-glass: rgba(255, 255, 255, 0.03);
+  --border-glass: rgba(255, 255, 255, 0.1);
+}
+
+.app-viewport {
+  min-height: 100vh;
+  background-color: var(--dark-bg);
+  color: #f8fafc;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Ambient Background Glow */
+.ambient-glow {
+  position: fixed;
+  top: -10%;
+  right: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.content-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero Section Grid */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.title-gradient {
+  font-size: 4rem;
+  font-weight: 800;
+  margin: 1rem 0;
+  background: linear-gradient(to right, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title-gradient span {
+  color: var(--med-blue);
+  -webkit-text-fill-color: initial;
+}
+
+/* Floating Banner Animation */
+.floating-banner {
+  width: 100%;
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Interactive Info Cards */
+.quick-access {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.info-card {
+  background: var(--card-glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-glass);
+  padding: 1.5rem;
+  border-radius: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.info-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--med-blue);
+}
+
+.info-card.featured {
+  border-left: 4px solid var(--med-teal);
+}
+
+/* Buttons */
+.cta-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn-primary {
+  background: var(--med-blue);
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.4);
+}
+
+.btn-secondary {
+  border: 1px solid var(--border-glass);
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+}
+
+/* Status Badge */
+.status-badge {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+
+/* -----------------------------------Patient------------------------------- */
+.patient-page {
+  min-height: 100vh;
+  background: #0f172a;
+  padding: 2.5rem;
+  color: #e5e7eb;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.patient-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+/* FORM */
+.patient-form {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+  border-radius: 22px;
+  padding: 2rem;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+}
+
+.patient-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.patient-grid .full {
+  grid-column: span 2;
+}
+
+.patient-grid .submit {
+  display: flex;
+  align-items: flex-end;
+}
+
+label {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+input {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(15, 23, 42, 0.8);
+  color: white;
+}
+
+input.error {
+  border-color: #ef4444;
+}
+
+span {
+  font-size: 0.7rem;
+  color: #f87171;
+}
+
+/* Gender Pills */
+.gender-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 8px;
+}
+
+.gender-group button {
+  background: transparent;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  padding: 8px 16px;
+  border-radius: 999px;
+  color: white;
+  cursor: pointer;
+}
+
+.gender-group .active {
+  background: #44b937;
+  border-color: #004f27;
+}
+
+/* Submit Button */
+.patient-form button {
+  width: 100%;
+  background: linear-gradient(135deg, #2563eb, #0d9488);
+  border: none;
+  padding: 12px;
+  border-radius: 16px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+}
+
+/* TABLE */
+.patient-table {
+  margin-top: 3rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+th,
+td {
+  padding: 14px;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+tbody tr:hover {
+  background: rgba(37, 99, 235, 0.08);
+}
+
+button.danger {
+  background: transparent;
+  border: 1px solid #ef4444;
+  color: #f87171;
+  padding: 6px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button.danger:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* SEARCH SECTION */
+.search-section {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+  border-radius: 22px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.search-section h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #94a3b8;
+}
+
+.search-input-group {
+  display: flex;
+  gap: 12px;
+}
+
+/* Reusing your existing input styles, but specifically for search */
+.search-input-group input {
+  flex: 1;
+  margin-top: 0; /* Align with button */
+}
+
+.search-button {
+  background: linear-gradient(135deg, #2563eb, #3b82f6) !important;
+  padding: 10px 25px;
+  border-radius: 14px;
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.search-button:hover {
+  opacity: 0.9;
+}
+
+/* RESULT CARD */
+.result-card {
+  margin-top: 1.5rem;
+  padding: 1.2rem;
+  border-radius: 16px;
+  background: rgba(34, 197, 94, 0.1); /* Subtle green glow */
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.result-card p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+.result-card strong {
+  color: #4ade80; /* Bright green for emphasis */
+}
+
+.clear-search-btn {
+  margin-top: 10px;
+  background: transparent;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  color: #94a3b8;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.clear-search-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.not-found-text {
+  color: #f87171;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* ------------------------------------------Doctor---------------------------------- */
+/* ===============================
+   DOCTORS PAGE – MODERN HMS UI
+   =============================== */
+
+.doctor-page {
+  min-height: 100vh;
+  background: #0f172a;
+  padding: 2.5rem;
+  color: #e5e7eb;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.doctor-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+/* FORM */
+.doctor-form {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+  border-radius: 22px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+}
+
+.doctor-form h3 {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: #cbd5f5;
+}
+
+.doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.doctor-grid .submit {
+  display: flex;
+  align-items: flex-end;
+}
+
+/* Inputs */
+label {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+input {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(15, 23, 42, 0.8);
+  color: #f8fafc;
+}
+
+input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+/* Submit Button */
+.doctor-form button {
+  width: 100%;
+  background: linear-gradient(135deg, #2563eb, #0d9488);
+  border: none;
+  padding: 12px;
+  border-radius: 16px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+}
+
+.doctor-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* DOCTOR CARDS */
+.doctor-grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.doctor-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 1.5rem;
+  border-left: 4px solid #2563eb;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  transition: transform 0.3s ease;
+}
+
+.doctor-card:hover {
+  transform: translateY(-8px);
+}
+
+.doctor-id {
+  font-size: 0.7rem;
+  color: #93c5fd;
+}
+
+.doctor-card h4 {
+  margin: 0.5rem 0;
+}
+
+.specialization {
+  font-size: 0.85rem;
+  color: #38bdf8;
+}
+
+.contact {
+  font-size: 0.8rem;
+  color: #cbd5f5;
+}
+
+.empty {
+  margin-top: 3rem;
+  text-align: center;
+  color: #94a3b8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .doctor-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .doctor-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* -----------------------------------Appointment page------------------------------------ */
+/* ===============================
+   PAGE
+   =============================== */
+
+.appointments-page {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2.5rem;
+  font-family: "Inter", system-ui, sans-serif;
+  color: #e5e7eb;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+/* ===============================
+   FORM CARD
+   =============================== */
+
+.appointment-card {
+  background: linear-gradient(145deg, #0f172a, #020617);
+  border-radius: 24px;
+  padding: 2.2rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+.appointment-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.6rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field.wide {
+  grid-column: span 2;
+}
+
+.field label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  margin-bottom: 6px;
+}
+
+.field select,
+.field input {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(2, 6, 23, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  color: #f8fafc;
+  font-size: 0.85rem;
+}
+
+.field select:focus,
+.field input:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
+}
+
+/* Chrome, Edge, Brave, Opera */
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+/* Optional hover effect */
+input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* Firefox (partial support, still needed) */
+input[type="datetime-local"] {
+  color-scheme: var(--white);
+}
+
+/* ===============================
+   BUTTON
+   =============================== */
+
+.primary-btn {
+  align-self: end;
+  padding: 14px;
+  border-radius: 18px;
+  border: none;
+  background: linear-gradient(135deg, #2563eb, #0d9488);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.45);
+}
+
+/* ===============================
+   TABLE
+   =============================== */
+
+.table-wrapper {
+  background: rgba(15, 23, 42, 0.85);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #020617;
+}
+
+th {
+  padding: 16px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #c7d2fe;
+  text-align: left;
+}
+
+td {
+  padding: 16px;
+  font-size: 0.85rem;
+}
+
+tbody tr {
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+tbody tr:hover {
+  background: rgba(37, 99, 235, 0.08);
+}
+
+.strong {
+  font-weight: 700;
+}
+
+/* ===============================
+   STATUS
+   =============================== */
+
+.status {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.status.scheduled {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+}
+
+.status.completed {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+/* ===============================
+   EMPTY STATE
+   =============================== */
+
+.empty-state {
+  padding: 2rem;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
+
+@media (max-width: 900px) {
+  .appointment-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .field.wide {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 500px) {
+  .appointment-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* --------------------------------Billing-------------------------------- */
+/* ---------------- Billing Page ---------------- */
+
+.billing-page {
+  min-height: 100vh;
+  padding: 2.5rem;
+  background: #0f172a;
+  color: #e5e7eb;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.billing-title {
+  font-size: 1.9rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+}
+
+/* FORM */
+.billing-form {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+  border-radius: 22px;
+  padding: 2rem;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+  margin-bottom: 4rem;
+}
+
+.billing-form h3 {
+  margin-bottom: 1.5rem;
+  color: #cbd5f5;
+}
+
+.billing-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+}
+
+.billing-grid .submit {
+  display: flex;
+  align-items: flex-end;
+}
+
+.billing-grid label {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.billing-grid input,
+.billing-grid select {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(15, 23, 42, 0.9);
+  color: white;
+}
+
+.billing-grid input:disabled {
+  opacity: 0.7;
+}
+
+/* Button */
+.billing-grid button {
+  width: 100%;
+  background: linear-gradient(135deg, #2563eb, #0d9488);
+  border: none;
+  padding: 12px;
+  border-radius: 16px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+}
+
+.billing-grid button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* SEARCH */
+.billing-search h3 {
+  margin-bottom: 1rem;
+}
+
+.search-box {
+  display: flex;
+  gap: 1rem;
+  max-width: 420px;
+  margin-bottom: 2rem;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(15, 23, 42, 0.9);
+  color: white;
+}
+
+.search-box button {
+  padding: 10px 20px;
+  border-radius: 14px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* TABLE */
+.billing-table {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.billing-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.billing-table thead {
+  background: rgba(15, 23, 42, 0.95);
+}
+
+.billing-table th,
+.billing-table td {
+  padding: 14px;
+  font-size: 0.85rem;
+}
+
+.billing-table tbody tr:hover {
+  background: rgba(37, 99, 235, 0.08);
+}
+
+/* STATUS */
+.status {
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.status.paid {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.status.unpaid {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
+
+/* EMPTY */
+.empty {
+  margin-top: 2rem;
+  color: #94a3b8;
+  text-align: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .billing-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .billing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search-box {
+    flex-direction: column;
+  }
+}
+
+/* ---------------------------------Emergency SOS--------------------------------- */
+/* EMERGENCY OVERLAY & MODAL */
+.emergency-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.9); /* Matching dashboard background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    backdrop-filter: blur(12px);
+}
+
+.emergency-modal {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    border-radius: 28px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    border: 1px solid rgba(239, 68, 68, 0.3); /* Subtle red border */
+    box-shadow: 0 0 50px rgba(239, 68, 68, 0.2); /* Red emergency glow */
+}
+
+/* Typography */
+.emergency-modal h3 {
+    color: #f87171; /* High-visibility soft red */
+    margin-bottom: 15px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.emergency-modal p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Textarea styling */
+.emergency-modal textarea {
+    width: 100%;
+    height: 120px;
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 16px;
+    color: white;
+    font-family: inherit;
+    resize: none;
+    transition: border-color 0.3s;
+}
+
+.emergency-modal textarea:focus {
+    outline: none;
+    border-color: #ef4444;
+}
+
+/* Buttons */
+.modal-btns {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.btn-cancel {
+    flex: 1;
+    background: rgba(148, 163, 184, 0.1);
+    color: #94a3b8;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    padding: 12px;
+    border-radius: 14px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-send {
+    flex: 2;
+    background: linear-gradient(135deg, #ef4444, #991b1b);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 14px;
+    cursor: pointer;
+    font-weight: 800;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+/* Success Message Override */
+.success-msg .check-icon {
+    font-size: 60px;
+    filter: drop-shadow(0 0 15px rgba(34, 197, 94, 0.5));
+}
+
+.success-msg h3 {
+    color: #4ade80 !important; /* Medical success green */
+}
