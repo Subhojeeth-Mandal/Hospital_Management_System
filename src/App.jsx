@@ -51,21 +51,27 @@ function App() {
                 
                 {/* Interactive Quick-Access Cards */}
                 <section className="quick-access">
-                    <div className="info-card">
+                    <Link to="/appointments">
+                      <div className="info-card featured">
                         <div className="icon">📅</div>
                         <h4>Today's Schedule</h4>
                         <p>14 Appointments remaining</p>
-                    </div>
-                    <div className="info-card featured">
+                      </div>
+                    </Link>
+                    <Link to="/doctors">
+                      <div className="info-card featured">
                         <div className="icon">🩺</div>
                         <h4>On-Call Doctors</h4>
                         <p>8 Specialized units active</p>
-                    </div>
-                    <div className="info-card">
+                      </div>
+                    </Link>
+                    <Link to="/billing">
+                      <div className="info-card featured">
                         <div className="icon">💳</div>
                         <h4>Recent Billing</h4>
                         <p>3 Pending invoices</p>
-                    </div>
+                      </div>
+                    </Link>
                 </section>
               </div>
             } />

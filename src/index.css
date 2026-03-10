@@ -244,8 +244,23 @@
   margin-top: 2rem;
 }
 
+.quick-access a {
+  text-decoration: none; /* Removes the underline */
+  color: inherit;        /* Keeps the text color from your theme */
+  display: block;        /* Ensures the clickable area covers the whole card */
+}
+
+/* Ensure child text remains clean */
+.quick-access a:hover, 
+.quick-access a:focus, 
+.quick-access a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
 .info-card {
   background: var(--card-glass);
+  text-decoration: none;
   backdrop-filter: blur(12px);
   border: 1px solid var(--border-glass);
   padding: 1.5rem;
