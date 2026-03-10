@@ -15,11 +15,20 @@ export default function Billing() {
 
   const handleSearch = async () => {
     if (!searchId) return alert('Please enter Patient ID');
+
     try {
       const res = await billAPI.getByPatient(searchId);
-      setBills(res.data);
-    } catch {
-      alert('No records found');
+      // Check if response is empty or if the bills list is empty
+      if (!res.data || res.data.length === 0) {
+        alert(`No patient details or billing records found for ID: ${searchId}`);
+        setBills([]); // Clear the table if no data is found
+      } else {
+        setBills(res.data);
+      }
+    } catch (err) {
+      // Handles 404 errors or network issues
+      alert('No records found for this Patient ID.');
+      setBills([]);
     }
   };
 
